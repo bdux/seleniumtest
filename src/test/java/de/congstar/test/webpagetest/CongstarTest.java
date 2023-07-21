@@ -20,4 +20,14 @@ public class CongstarTest extends BaseTest {
         log.info("TEST");
 
     }
+
+    @Test
+    public void testCongstarPageTwo(){
+
+        CongstarWebShopPage page = navigateToPage(CongstarWebShopPage.class);
+        sleep(Duration.ofSeconds(2));
+        page.closeCookieHint();
+        log.info("TEST");
+
+    }
 }

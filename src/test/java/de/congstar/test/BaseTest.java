@@ -1,23 +1,33 @@
 package de.congstar.test;
 
 import de.congstar.pages.BasePage;
-import de.congstar.utils.PageUrl;
 import de.congstar.utils.PageUrlSupport;
 import de.congstar.webdriver.WebDriverBuilder;
-import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import java.lang.reflect.Field;
 import java.time.Duration;
 
 public abstract class BaseTest {
 
-    static WebDriver driver;
+    WebDriver driver;
     @BeforeAll
-    public static void setup() {
+    public static void setupAll() {
+        WebDriverBuilder.setup();
+    }
+
+    @BeforeEach
+    void setup(){
         driver = new WebDriverBuilder().getDriver();
+    }
+
+    @AfterEach
+    public void tearDown(){
+        if (driver != null)
+            driver.quit();
     }
 
     public <T extends BasePage> T navigateToPage(Class<T> pageObject){
@@ -40,9 +50,5 @@ public abstract class BaseTest {
 
     }
 
-    @AfterAll
-    public static void tearDown(){
-        driver.close();
-    }
 
 }

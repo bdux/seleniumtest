@@ -6,11 +6,14 @@ import de.congstar.webdriver.WebDriverBuilder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
+@Execution(ExecutionMode.CONCURRENT)
 public abstract class BaseTest {
 
     WebDriver driver;

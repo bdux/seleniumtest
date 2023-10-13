@@ -23,7 +23,7 @@ public class CongstarWebShopPage extends BasePage{
 
         WebElement shadowHost = driver.findElement(By.cssSelector("#usercentrics-root"));
         SearchContext shadowRoot = shadowHost.getShadowRoot();
-        shadowRoot.findElement(By.cssSelector("#uc-center-container > div.sc-cCjUiG.fKWGko > div > div > div > button:nth-child(2)")).click();
+        shadowRoot.findElement(By.cssSelector("#uc-center-container > div.sc-eBMEME.ixkACg > div > div > div > button:nth-child(2)")).click();
 
     }
 
